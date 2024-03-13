@@ -1,0 +1,21 @@
+// clock.proto
+
+syntax = "proto3";
+
+service ClockSynchronizer {
+    rpc GetTime(TimeRequest) returns (TimeResponse) {}
+    rpc SyncTime(SyncRequest) returns (SyncResponse) {}
+}
+
+message TimeRequest {}
+message TimeResponse {
+    int64 timestamp = 1;
+}
+
+message SyncRequest {
+    repeated TimeResponse slave_times = 1;
+}
+
+message SyncResponse {
+    int64 adjustment = 1;
+}
