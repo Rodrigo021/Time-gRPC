@@ -1,5 +1,3 @@
-// clock.proto
-
 syntax = "proto3";
 
 service ClockSynchronizer {
